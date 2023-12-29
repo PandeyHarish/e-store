@@ -1,6 +1,13 @@
-// import React from 'react'
+import { useState } from "react";
+import "animate.css"
 
 const Navbar = () => {
+
+  const [display, setDisplay] = useState("hidden");
+
+  const mobNav = () => {
+    setDisplay((prevState) => (prevState === "hidden" ? "block" : "hidden"));
+  };
   return (
     <>
       <section className="sticky top-0 left-0 right-0 z-10 hidden border-b shadow-sm py-3 sm:block">
@@ -33,6 +40,9 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
+          <div className="text-3xl mr-3">
+            <i className="ri-shopping-cart-2-line"></i>
+          </div>
         </nav>
       </section>
       <section>
@@ -41,12 +51,20 @@ const Navbar = () => {
           <div className="px-4 ">
             <div className="flex justify-between">
               <h1 className="  text-base sm:text-xl  ">E-Shopper</h1>
-              <p className="text-2xl" onClick="mobNav">
-                <i className="cursor-pointer ri-menu-line" id="mnavo"></i>
-                <i className="cursor-pointer ri-close-line" id="mnavc"></i>
-              </p>
+              <div className="flex gap-4">
+                <div className="text-2xl">
+                  <i className="ri-shopping-cart-2-line"></i>
+                </div>
+                <p className="text-2xl" onClick={mobNav}>
+                  <i className={`cursor-pointer ri-${display === "hidden" ? "menu" : "close"}-line`}></i>
+                  {/* <i className={`cursor-pointer ri-close-line`}></i> */}
+                </p>
+              </div>
             </div>
-            <div id="mobnav" className="text-base p-4 fixed border ml-2 shadow-sm top-14  left-0 pt-1 w-[50%] rounded-lg">
+            <div
+              id="mobnav"
+              className={`text-base p-4 fixed border ml-2 shadow-sm top-14  left-0 pt-1 w-[50%] rounded-lg ${display} animate__animated animate__bounce`}
+            >
               <ul>
                 <li className="p-2">
                   <a href="#" onClick="mobNav" className="text-xl ">
@@ -86,5 +104,7 @@ const Navbar = () => {
     </>
   );
 };
+
+
 
 export default Navbar;
