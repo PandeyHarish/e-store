@@ -1,8 +1,6 @@
 import { useState } from "react";
-import "animate.css"
 
 const Navbar = () => {
-
   const [display, setDisplay] = useState("hidden");
 
   const mobNav = () => {
@@ -10,7 +8,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <section className="sticky top-0 left-0 right-0 z-10 hidden border-b shadow-sm py-3 sm:block">
+      <section className="sticky top-0 left-0 right-0 z-10 hidden border-b shadow-sm py-3 sm:block bg-white">
         {/*  desktop navbar  */}
         <nav className="flex justify-between gap-2 px-4">
           <div>
@@ -52,47 +50,44 @@ const Navbar = () => {
             <div className="flex justify-between">
               <h1 className="  text-base sm:text-xl  ">E-Shopper</h1>
               <div className="flex gap-4">
-                <div className="text-2xl">
-                  <i className="ri-shopping-cart-2-line"></i>
-                </div>
-                <p className="text-2xl" onClick={mobNav}>
+                <p className="text-2xl " onClick={mobNav}>
+                  <i className="ri-shopping-cart-2-line mr-4"></i>
                   <i className={`cursor-pointer ri-${display === "hidden" ? "menu" : "close"}-line`}></i>
-                  {/* <i className={`cursor-pointer ri-close-line`}></i> */}
                 </p>
               </div>
             </div>
             <div
               id="mobnav"
-              className={`text-base p-4 fixed border ml-2 shadow-sm top-14  left-0 pt-1 w-[50%] rounded-lg ${display} animate__animated animate__bounce`}
+              className={`text-base p-4 fixed border ml-2 shadow-sm top-14  left-0 pt-1 w-[50%] rounded-lg ${display} animate__animated animate__backInLeft backdrop-blur-sm`}
             >
               <ul>
                 <li className="p-2">
-                  <a href="#" onClick="mobNav" className="text-xl ">
+                  <a href="#" className="text-xl ">
                     Home
                   </a>
                 </li>
                 <li className="p-2">
-                  <a href="#about" onClick="mobNav" className="text-xl ">
+                  <a href="#about" className="text-xl ">
                     About
                   </a>
                 </li>
                 <li className="p-2">
-                  <a href="#skills" onClick="mobNav" className="text-xl ">
+                  <a href="#skills" className="text-xl ">
                     Skills
                   </a>
                 </li>
                 <li className="p-2">
-                  <a href="#services" onClick="mobNav" className="text-xl ">
+                  <a href="#services" className="text-xl ">
                     Services
                   </a>
                 </li>
                 <li className="p-2">
-                  <a href="#portfolio" onClick="mobNav" className="text-xl ">
+                  <a href="#portfolio" className="text-xl ">
                     Portfolio
                   </a>
                 </li>
                 <li className="p-2">
-                  <a href="#contact" onClick="mobNav" className="text-xl ">
+                  <a href="#contact" className="text-xl ">
                     Contact me
                   </a>
                 </li>
@@ -104,7 +99,5 @@ const Navbar = () => {
     </>
   );
 };
-
-
 
 export default Navbar;
