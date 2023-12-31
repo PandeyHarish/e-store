@@ -11,7 +11,7 @@ const ProductItem = () => {
         <p className="">
           <span>Lorem ipsum dolor sit.</span>
           <br />
-          <span className="font-bold mt-3">Rs.100</span>
+          <p className="font-bold mt-3 my-3">Rs.100</p>
         </p>
         <button className="bg-indigo-600 hover:bg-indigo-800 text-white px-2 py-1 text-sm md:px-4 md:py-2 md:text-lg w-full rounded-md">
           <i className="ri-shopping-cart-2-line"></i>

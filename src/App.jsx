@@ -1,12 +1,14 @@
 import Navbar from "./components/Navbar";
-import Product from "./components/Product";
+// import Product from "./components/Product";
+import ProductPage from "./components/ProductPage";
 
 
 const App = () => {
   return (
     <div>
-      <Navbar />
-      <Product/>
+       <Navbar />
+     {/* <Product /> */}
+      <ProductPage />
     </div>
   );
 };
