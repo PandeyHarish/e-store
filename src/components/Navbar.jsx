@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [display, setDisplay] = useState("hidden");
@@ -11,36 +12,27 @@ const Navbar = () => {
       <section className="sticky top-0 left-0 right-0 z-10 hidden border-b shadow-sm py-3 sm:block bg-white">
         {/*  desktop navbar  */}
         <nav className="flex justify-between gap-2 px-4">
-          <div>
-            <p className=" text-right font-bold ">E-Shopper</p>
+          <div className="flex items-center">
+            <p className=" text-right font-bold ">
+              <Link to={"/"}>E-Shopper</Link>
+            </p>
           </div>
 
-          <div id="nav">
+          <div id="nav" className="flex items-center">
             <ul>
               <li className="inline p-2 text-lg">
-                <a href="#">Home</a>
+                <Link to="/">Home</Link>
               </li>
               <li className="inline p-2 text-lg">
                 <a href="#about">About</a>
               </li>
-
               <li className="inline p-2 text-lg">
-                <a href="#skills">Skills</a>
-              </li>
-              <li className="inline p-2 text-lg">
-                <a href="#services">Services</a>
-              </li>
-              <li className="inline p-2 text-lg">
-                <a href="#portfolio">Portfolio</a>
-              </li>
-              <li className="inline p-2 text-lg">
-                <a href="#contact">Contact me</a>
+                <a href="#contact">Contact Us</a>
               </li>
             </ul>
           </div>
-          <div className="text-3xl mr-3">
-            <i className="ri-shopping-cart-2-line"></i>
-          </div>
+
+          <i className="ri-shopping-cart-2-line text-xl mr-5"></i>
         </nav>
       </section>
       <section>
@@ -48,7 +40,9 @@ const Navbar = () => {
         <nav className="sticky z-20 w-full px-4 mt-2 bg-transparent sm:hidden border-b shadow-sm py-1.5" id="mobinav">
           <div className="px-4 ">
             <div className="flex justify-between">
-              <h1 className="  text-base sm:text-xl  ">E-Shopper</h1>
+              <h1 className="  text-base sm:text-xl  ">
+                <Link to={"/"}>E-Shopper</Link>
+              </h1>
               <div className="flex gap-4">
                 <p className="text-2xl " onClick={mobNav}>
                   <i className="ri-shopping-cart-2-line mr-4"></i>
@@ -62,9 +56,9 @@ const Navbar = () => {
             >
               <ul>
                 <li className="p-2">
-                  <a href="#" className="text-xl ">
+                  <Link to="/" className="text-xl ">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="p-2">
                   <a href="#about" className="text-xl ">
