@@ -1,25 +1,36 @@
 import { useEffect, useState } from "react";
 import ProductItem from "./ProductItem";
+import PropTypes from "prop-types";
 
+const Product = (props) => {
+  const { category } = props;
 
-const Product = () => {
-  const [data,setData]= useState([])
+  const [data, setData] = useState([]);
+
+  const capitalize = (s) => {
+    return s && s[0].toUpperCase() + s.slice(1);
+  };
+
+  let url = "https://fakestoreapi.com/products";
+
+  if (category) {
+    url =  `https://fakestoreapi.com/products/category/${category}?limit=5`;
+  }
   const products = async () => {
-    const url = `https://fakestoreapi.com/products/`;
     const res = await fetch(url);
     const pasrsedData = await res.json();
     setData(pasrsedData);
   };
-useEffect(() => {
-  products();
-
-  
-}, [])
+  useEffect(() => {
+    products();
+  }, []);
 
   return (
     <>
       <div className="pl-8 mt-5">
-        <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl"></h2>
+        <h2 className="font-bold w-fit text-2xl sm:text-3xl md:text-4xl pb-2 border-b-4 border-indigo-800 mx-1 sm:mx-10 md:mx-20">
+          {category ? capitalize(category ): "All Products"}
+        </h2>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 mt-2 p-8 mx-1 sm:mx-10 md:mx-20">
         {data.map((element) => {
@@ -40,4 +51,7 @@ useEffect(() => {
   );
 };
 
+Product.propTypes = {
+  category: PropTypes.string,
+};
 export default Product;
