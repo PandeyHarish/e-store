@@ -23,6 +23,7 @@ const Product = (props) => {
   };
   useEffect(() => {
     products();
+    //eslint-disable-next-line
   }, []);
 
   return (

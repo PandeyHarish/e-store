@@ -17,6 +17,7 @@ const ProductPage = () => {
   };
   useEffect(() => {
     product();
+    //eslint-disable-next-line 
   }, []);
   return (
     <div className="flex mx-20 mt-8 p-5">
