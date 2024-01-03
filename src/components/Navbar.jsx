@@ -7,6 +7,7 @@ const Navbar = () => {
   const mobNav = () => {
     setDisplay((prevState) => (prevState === "hidden" ? "block" : "hidden"));
   };
+  
   return (
     <>
       <section className="sticky top-0 left-0 right-0 z-10 hidden border-b shadow-sm py-3 sm:block bg-white">
@@ -35,7 +36,9 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <i className="ri-shopping-cart-2-line text-xl mr-5"></i>
+          <Link to="/cart">
+            <i className="ri-shopping-cart-2-line text-xl mr-5" ></i>
+          </Link>
         </nav>
       </section>
       <section>
@@ -48,7 +51,7 @@ const Navbar = () => {
               </h1>
               <div className="flex gap-4">
                 <p className="text-2xl " onClick={mobNav}>
-                  <i className="ri-shopping-cart-2-line mr-4"></i>
+                  <i className="ri-shopping-cart-2-line mr-4" ></i>
                   <i className={`cursor-pointer ri-${display === "hidden" ? "menu" : "close"}-line`}></i>
                 </p>
               </div>

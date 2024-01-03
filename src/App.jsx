@@ -3,6 +3,7 @@ import Product from "./components/Product";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProductPage from "./components/ProductPage";
 import Home from "./components/Home";
+import Cart from "./components/Cart";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/products" element={<Product />} />
+          <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/product/:id" element={<ProductPage />} />
         </Routes>
       </BrowserRouter>
