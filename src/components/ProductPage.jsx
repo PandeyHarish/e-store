@@ -1,4 +1,3 @@
-// import React from 'react'
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -21,8 +20,8 @@ const ProductPage = () => {
   }, []);
   return (
     <div className="flex mx-20 mt-8 p-5">
-      <div className=" w-[50%] flex-3">
-        <img src={details.image} alt={details.title} className="h-60" />
+      <div className=" w-full flex-3">
+        <img src={details.image} alt={details.title} className="  h-full" />
       </div>
       <div className="p-3">
         <p className="text-xl font-semibold">{details.title}</p>

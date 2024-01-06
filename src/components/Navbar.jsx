@@ -1,16 +1,21 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import Toggle from "./Toggle";
+import ThemeContext from "../context/ThemeContext";
 
 const Navbar = () => {
   const [display, setDisplay] = useState("hidden");
+  const { theme } = useContext(ThemeContext);
 
   const mobNav = () => {
     setDisplay((prevState) => (prevState === "hidden" ? "block" : "hidden"));
   };
-  
+
   return (
     <>
-      <section className="sticky top-0 left-0 right-0 z-10 hidden border-b shadow-sm py-3 sm:block bg-white">
+      <section
+        className={`sticky top-0 left-0 right-0 z-10 hidden border-b shadow-sm py-3 sm:block ${theme === "light" ? "bg-white" : "bg-zinc-900"} `}
+      >
         {/*  desktop navbar  */}
         <nav className="flex justify-between gap-2 px-4">
           <div className="flex items-center">
@@ -36,9 +41,12 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <Link to="/cart">
-            <i className="ri-shopping-cart-2-line text-xl mr-5" ></i>
-          </Link>
+          <div className="flex">
+            <Link to="/cart">
+              <i className="ri-shopping-cart-2-line text-xl mr-5"></i>
+            </Link>
+            <Toggle />
+          </div>
         </nav>
       </section>
       <section>
@@ -51,7 +59,7 @@ const Navbar = () => {
               </h1>
               <div className="flex gap-4">
                 <p className="text-2xl " onClick={mobNav}>
-                  <i className="ri-shopping-cart-2-line mr-4" ></i>
+                  <i className="ri-shopping-cart-2-line mr-4"></i>
                   <i className={`cursor-pointer ri-${display === "hidden" ? "menu" : "close"}-line`}></i>
                 </p>
               </div>

@@ -1,8 +1,11 @@
-// import React from 'react'
 import PropTypes from "prop-types";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import ThemeContext from "../context/ThemeContext";
+
 
 const ProductItem = (props) => {
+  const { theme } = useContext(ThemeContext);
   const history = useNavigate();
   const capitalize = (s) => {
     return s && s[0].toUpperCase() + s.slice(1);
@@ -40,7 +43,7 @@ const ProductItem = (props) => {
           <p className="font-medium mb-2">{title}</p>
 
           <p className="font-bold mt-3 my-3">${price}</p>
-          <span className="text-sm text-gray-700">{capitalize(category)}</span>
+          <span className={`text-sm ${theme === "light" ? "text-gray-700" : "text-gray-300"}`}>{capitalize(category)}</span>
           <p className="my-1 text-sm">Ratings: {rating.rate}</p>
         </div>
         <button
